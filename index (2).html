@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Bio Link</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      background: linear-gradient(-45deg,#ff0080,#7928ca,#00c6ff,#0072ff);
+      background-size: 400% 400%;
+      animation: bgMove 12s ease infinite;
+    }
+
+    @keyframes bgMove{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    .card{
+      width:340px;
+      padding:30px;
+      border-radius:25px;
+      text-align:center;
+      backdrop-filter: blur(15px);
+      background: rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+      box-shadow:0 10px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .profile{
+      position:relative;
+      width:120px;
+      height:120px;
+      margin:auto;
+    }
+
+    .profile img{
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      border:4px solid white;
+      object-fit:cover;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+      100%{transform:translateY(0);}
+    }
+
+    h1{
+      color:white;
+      margin-top:20px;
+      font-size:28px;
+    }
+
+    p{
+      color:#eee;
+      margin:10px 0 25px;
+      font-size:14px;
+    }
+
+    .link{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      padding:15px;
+      margin:14px 0;
+      text-decoration:none;
+      color:white;
+      font-weight:bold;
+      border-radius:14px;
+      background: rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.2);
+      transition:0.35s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .link::before{
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(255,255,255,0.2);
+      left:-100%;
+      top:0;
+      transition:0.5s;
+    }
+
+    .link:hover::before{
+      left:100%;
+    }
+
+    .link:hover{
+      transform:scale(1.05);
+      background: rgba(255,255,255,0.25);
+      box-shadow:0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .footer{
+      margin-top:20px;
+      color:white;
+      font-size:12px;
+      opacity:0.8;
+    }
+
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,0.15);
+      animation: move 10s linear infinite;
+    }
+
+    .circle:nth-child(1){
+      width:120px;
+      height:120px;
+      top:10%;
+      left:10%;
+    }
+
+    .circle:nth-child(2){
+      width:180px;
+      height:180px;
+      bottom:10%;
+      right:10%;
+      animation-duration:15s;
+    }
+
+    @keyframes move{
+      0%{
+        transform:translateY(0) rotate(0deg);
+      }
+      50%{
+        transform:translateY(-30px) rotate(180deg);
+      }
+      100%{
+        transform:translateY(0) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="card">
+
+    <div class="profile">
+      <img src="https://i.pravatar.cc/200?img=15">
+    </div>
+
+    <h1>Jennii</h1>
+    <p>Creator • Developer • Designer</p>
+
+    <a class="link" href="https://instagram.com" target="_blank">
+      📸 Instagram
+    </a>
+
+    <a class="link" href="https://youtube.com" target="_blank">
+      ▶ YouTube
+    </a>
+
+    <a class="link" href="https://tiktok.com" target="_blank">
+      🎵 TikTok
+    </a>
+
+    <a class="link" href="https://telegram.org" target="_blank">
+      💬 Telegram
+    </a>
+
+    <div class="footer">
+      © 2026 My Bio Link
+    </div>
+
+  </div>
+
+  <script>
+    console.log("Animated Bio Link Ready");
+  </script>
+
+</body>
+</html>
